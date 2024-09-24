@@ -105,4 +105,5 @@ select * from empregados where salario > 7000;
 	-- Seleciona dados que começam com a letra B
 select * from empregados where nome like 'b%';
 
-select * from empregados where data_admissao > '2022-01-01';
+select * from empregados where data_admissao > '2022-01-01'
+order by nome desc;
