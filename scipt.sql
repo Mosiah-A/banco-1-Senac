@@ -1,4 +1,4 @@
-
+'''
 ################################################
 
 create table departamentos (
@@ -47,8 +47,15 @@ create table test(
 
 drop table alunos;
 
-
+'''
 ################################ 17/09 #############################
+
+create table departamentos (
+	id Int auto_increment primary KEY,
+    nome VARCHAR(100),
+    bloco varchar(100),
+    data_criacao date
+);
 CREATE TABLE empregados (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
@@ -57,13 +64,6 @@ CREATE TABLE empregados (
     salario decimal(10,2),
     FOREIGN KEY (departamento_id) REFERENCES departamentos (id)
 );
-create table departamentos (
-	id Int auto_increment primary KEY,
-    nome VARCHAR(100),
-    bloco varchar(100),
-    data_criacao date
-);
-
 create table clientes (
 	id int auto_increment primary key,
     nome varchar(100)
