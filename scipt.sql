@@ -107,3 +107,7 @@ select * from empregados where nome like 'b%';
 
 select * from empregados where data_admissao > '2022-01-01'
 order by nome desc;
+
+
+select * from departamentos order by id desc;
+select * from empregados order by data_admissao desc;
