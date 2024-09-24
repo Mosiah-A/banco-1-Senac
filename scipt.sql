@@ -98,7 +98,11 @@ values ('Mosiah', 1, '2024-09-07', 15000.00),
 create database mosiah;
 use mosiah;
 
--- 24/09 --
-select * from empregados;
+-- 24/09 --select * from empregados where departamento_id = 2;
+select * from empregados where salario > 7000;
 
 
+	-- Seleciona dados que começam com a letra B
+select * from empregados where nome like 'b%';
+
+select * from empregados where data_admissao > '2022-01-01';
