@@ -1,0 +1,104 @@
+
+################################################
+
+create table departamentos (
+	id Int auto_increment primary KEY,
+    nome VARCHAR(100),
+    n_respon varchar(100),
+    bloco varchar(100)
+);
+
+#################################################
+
+CREATE TABLE empregados (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    departamento_id Int,
+    FOREIGN KEY (departamento_id) REFERENCES departamentos (id)
+);
+insert into departamentos (nome) values ('RH'), ('Financiro'), ('Ti');
+
+ALTER TABLE `bd_roberta`.`departamentos` 
+ADD COLUMN `bloco` VARCHAR(100) NULL AFTER `nome`,
+ADD COLUMN `n_respon` VARCHAR(100) NULL AFTER `bloco`;
+
+insert into empregados (nome, departamento_id) values ('João',1), ('Maria Souza', 2), ('Carlos Pereira', 3);
+
+select * from empregados;
+select * from departamentos;
+select nome from empregados where departamento_id = 2;
+select nome, departamento_id from empregados order by nome asc;
+
+update empregados set nome = 'Tamires Bezerra' where id = 1;
+
+insert into departamentos (nome, n_respon, bloco)
+values('Recursos Humanos','Tamires','Bloco A'), ('Financeiro','Carlos Eduardo', 'Bloco B'), ('TI','Osvaldo','Bloco C');
+
+update departamentos set nome = 'DTI'
+where id = 3;
+
+select * from test where d_cad <= "2024-07-08";
+
+create table test(
+	id int,
+    nome varchar(100),
+    d_cad date
+);
+
+drop table alunos;
+
+
+################################ 17/09 #############################
+CREATE TABLE empregados (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    departamento_id Int,
+    data_admissao date,
+    salario decimal(10,2),
+    FOREIGN KEY (departamento_id) REFERENCES departamentos (id)
+);
+create table departamentos (
+	id Int auto_increment primary KEY,
+    nome VARCHAR(100),
+    bloco varchar(100),
+    data_criacao date
+);
+
+create table clientes (
+	id int auto_increment primary key,
+    nome varchar(100)
+);
+
+create table vendas (
+	id_produto int auto_increment primary key,
+    id_cliente int,
+	produto varchar(100),
+	quantidade int,
+    FOREIGN KEY (id_cliente) references clientes (id)
+);
+
+select * from empregados;
+
+INSERT INTO departamentos (nome, bloco, data_criacao)
+VALUE ('Tecnologia da Informação', 'Bloco C', '2001-08-05'), 
+('Recursos humanos', 'Bloco D', '2005-02-25'), 
+('Financeiro', 'Bloco B', '2013-05-18'), 
+('Marketing', 'Bloco A', '2009-11-28');
+
+INSERT INTO empregados (nome, departamento_id, data_admissao, salario)
+values ('Mosiah', 1, '2024-09-07', 15000.00),
+('Jerold', 2, '1980-08-12', 1230.00),
+('Alfred', 3, '1785-06-06', 2.00),
+('Bruce', 4, '2012-02-02', 15325546.00),
+('Steve', 1, '1756-08-12', 1235.45),
+('Tony', 2, '2023-04-02', 12000.00),
+('Peter', 3, '2002-02-02', 850.00),
+('Ted', 4, '2001-01-02', 1235.65);
+
+create database mosiah;
+use mosiah;
+
+-- 24/09 --
+select * from empregados;
+
+
