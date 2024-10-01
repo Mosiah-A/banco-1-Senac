@@ -48,6 +48,8 @@ create table test(
 drop table alunos;
 
 '''
+create schema Mosiah;
+use Mosiah;
 ################################ 17/09 #############################
 
 create table departamentos (
@@ -95,8 +97,6 @@ values ('Mosiah', 1, '2024-09-07', 15000.00),
 ('Peter', 3, '2002-02-02', 850.00),
 ('Ted', 4, '2001-01-02', 1235.65);
 
-create database mosiah;
-use mosiah;
 
 -- 24/09 --select * from empregados where departamento_id = 2;
 select * from empregados where salario > 7000;
@@ -111,3 +111,7 @@ order by nome desc;
 
 select * from departamentos order by id desc;
 select * from empregados order by data_admissao desc;
+
+
+#########  01/10/2024 #####################
+
