@@ -278,8 +278,4 @@ GROUP BY d.nome;
 
 
 
--- Salario Maximo dos empregados
-select * 
-
-
 
