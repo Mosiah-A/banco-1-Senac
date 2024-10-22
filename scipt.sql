@@ -273,7 +273,53 @@ FROM departamentos d
 JOIN empregados e ON d.id = e.departamento_id
 GROUP BY d.nome;
 
+############## 15/10/2024 ############
 
+create table usuario (
+	id_usuario int auto_increment primary key,
+	nome varchar(100)
+);
+create table editora (
+	id_editora int auto_increment primary key,
+	nome varchar(100),
+    endereco varchar(100)
+);
+create table autor(
+	id_autor int auto_increment primary key,
+    nome varchar(100)
+);
+
+create table livro(
+	id_livro int auto_increment primary key,
+    titulo varchar(100),
+    id_editora int,
+    FOREIGN KEY (id_editora) references editora (id_editora)
+);
+
+create table emprestimo (
+	id_usuario int,
+    id_livro int,
+    daraEmprestimo date,
+    dataDevolucao date,
+    FOREIGN KEY (id_livro) references livro (id_livro),
+    FOREIGN KEY (id_usuario) references usuario (id_usuario)
+);
+
+create table reserva (
+	id_livro int,
+    id_editora int,
+    id_usuario int,
+    dataReserva date,
+    FOREIGN KEY (id_livro) references livro (id_livro),
+    FOREIGN KEY (id_editora) references editora (id_editora),
+    FOREIGN KEY (id_usuario) references usuario (id_usuario)
+);
+create table possui(
+	id_livro int,
+    id_autor int,
+    FOREIGN KEY (id_livro) references livro (id_livro),
+    FOREIGN KEY (id_autor) references autor (id_autor)
+)
 
 
 
