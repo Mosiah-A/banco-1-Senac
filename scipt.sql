@@ -319,9 +319,78 @@ create table possui(
     id_autor int,
     FOREIGN KEY (id_livro) references livro (id_livro),
     FOREIGN KEY (id_autor) references autor (id_autor)
-)
+);
 
 
 
+
+############ Normalização 05/11/2024 ##########
+
+
+create schema f1;
+
+use f1;
+
+create table tabelaunica (
+	id int auto_increment primary key,
+    titulo varchar(45),
+    autor varchar(45),
+    categoria varchar(45),
+    ano_publicacao date,
+    editora varchar(45),
+    cidade_editora varchar(45),
+    ISBN int,
+    id_aluno int,
+    nome_aluno varchar(45),
+    data_emprestimo date,
+    data_devolucao date
+);
+
+create schema f2;
+
+use f2;
+
+drop table editora;
+
+create table editora(
+	id int auto_increment primary key,
+	editora varchar(45),
+    cidade_editora varchar(45),
+    ISBN varchar(45)
+    
+);
+create table aluno(
+	id int  auto_increment primary key,
+    nome_aluno varchar(45),
+    data_emprestimo date,
+    data_devolucao date
+
+);
+
+create table livros(
+	id int auto_increment primary key,
+    titulo varchar(45),
+    autor varchar(45),
+    categoria varchar(45),
+    ano_publicacao year(0000),
+    id_editora int,
+    id_aluno int,
+	FOREIGN KEY (id_editora) references editora (id),
+    FOREIGN KEY (id_aluno) references aluno (id)
+);
+select * from livros, aluno , editora;
+select * from aluno;
+select * from editora;
+select * from livros;
+
+
+insert into editora (id, editora, cidade_editora, ISBN)
+	values (1, "Novatec","São Paulo", 12548956324700);
+    
+insert into aluno (id, nome_aluno, data_emprestimo, data_devolucao)
+	values (1, "Rogerio Silva", '2024-05-08', '2024-05-10');
+    
+insert into livros (id, titulo, autor, categoria, ano_publicacao, id_editora, id_aluno)
+	values (1, "Python básico", "João Sá", "Programação", '2020', 1, 1);
 
 
